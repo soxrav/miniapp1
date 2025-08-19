@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой простой мини-апп</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Мой простой апп</h1>
+        <p>Это самый простой мини-апп для Telegram!</p>
+
+        <button onclick="showTime()">🕐 Показать время</button>
+        <button onclick="randomNumber()">🎲 Случайное число</button>
+        <button onclick="showMessage()">💬 Приветствие</button>
+
+        <div id="result" style="margin-top: 20px; padding: 10px; background: rgba(255,255,255,0.2); border-radius: 8px;"></div>
+    </div>
+
+    <script>
+        function showTime() {
+            const now = new Date();
+            document.getElementById('result').innerHTML =
+                `📅 <b>Дата:</b> ${now.toLocaleDateString()}<br>
+                 ⏰ <b>Время:</b> ${now.toLocaleTimeString()}`;
+        }
+
+        function randomNumber() {
+            const num = Math.floor(Math.random() * 100) + 1;
+            document.getElementById('result').innerHTML =
+                `🎯 <b>Случайное число:</b> ${num}`;
+        }
+
+        function showMessage() {
+            const messages = [
+                "Привет! 👋",
+                "Как дела? 😊",
+                "Отличный день! ☀️",
+                "Телеграм рулит! 🚀"
+            ];
+            const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+            document.getElementById('result').innerHTML =
+                `💬 <b>Сообщение:</b> ${randomMsg}`;
+        }
+
+        // Автоматически показываем время при загрузке
+        showTime();
+    </script>
+</body>
+</html>
